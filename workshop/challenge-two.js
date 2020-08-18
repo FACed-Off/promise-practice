@@ -4,8 +4,16 @@ const test = require("tape");
 
 // CHALLENGE TWO:
 function readFilePromise(filePath) {
-  // REPLACE THIS WITH YOUR CODE
-  return {};
+  const promise = new Promise((resolve, reject) => {
+    return fs.readFile(filePath, (err, file) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(file)
+      }
+    })
+  })
+  return promise;
 }
 
 // TESTS
